@@ -1,18 +1,22 @@
-package com.example.demo.user.entity;
+package com.example.demo.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+/** A UserDetails */
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
 @Entity
 @Table(name = "user_details")
-public class UserDetails {
+public class UserDetails implements Serializable {
+  private static final long serialVersionUID = -7967466701373271976L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id", nullable = false)
@@ -60,6 +64,6 @@ public class UserDetails {
 
   @Override
   public int hashCode() {
-    return 666118392;
+    return getClass().hashCode();
   }
 }

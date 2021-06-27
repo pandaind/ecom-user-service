@@ -1,17 +1,21 @@
-package com.example.demo.user.entity;
+package com.example.demo.user.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+/** A User */
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
+  private static final long serialVersionUID = 4061550443261513561L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id", nullable = false)
@@ -42,6 +46,6 @@ public class User {
 
   @Override
   public int hashCode() {
-    return 562048007;
+    return getClass().hashCode();
   }
 }

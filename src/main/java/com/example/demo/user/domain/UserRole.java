@@ -1,19 +1,23 @@
-package com.example.demo.user.entity;
+package com.example.demo.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+/** A UserRole */
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
 @Entity
 @Table(name = "user_role")
-public class UserRole {
+public class UserRole implements Serializable {
+  private static final long serialVersionUID = 2605852694917065404L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id", nullable = false)
@@ -38,6 +42,6 @@ public class UserRole {
 
   @Override
   public int hashCode() {
-    return 1195449715;
+    return getClass().hashCode();
   }
 }
