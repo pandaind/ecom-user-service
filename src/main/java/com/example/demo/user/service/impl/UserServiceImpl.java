@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/** Service Implementation for managing {@link User}. */
 @Slf4j
 @Service
 @Transactional
@@ -42,8 +43,8 @@ public class UserServiceImpl implements UserService {
 
   @Override
   @Transactional(readOnly = true)
-  public UserDTO findOneByName(String userName) {
-    return mapper.toDto(repository.findByUserName(userName));
+  public Optional<UserDTO> findOneByName(String userName) {
+    return repository.findByUserName(userName).map(mapper::toDto);
   }
 
   @Override
