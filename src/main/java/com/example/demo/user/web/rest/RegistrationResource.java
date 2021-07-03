@@ -39,7 +39,7 @@ public class RegistrationResource {
    *     userDTO, or with status {@code 400 (Bad Request)} if the person has already an ID.
    * @throws URISyntaxException if the Location URI syntax is incorrect.
    */
-  @PostMapping("/user/registration")
+  @PostMapping("/users/registration")
   public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO user) throws URISyntaxException {
     log.debug("REST request to save User : {}", user);
     if (user.getId() != null) {

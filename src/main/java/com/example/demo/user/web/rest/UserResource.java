@@ -9,7 +9,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import javax.websocket.server.PathParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -68,8 +67,8 @@ public class UserResource {
    *     with status {@code 404 (not found)}.
    */
   @GetMapping(value = "/users/{id}")
-  public ResponseEntity<UserDTO> getUserById(@PathParam("id") Long id) {
-    log.debug("REST request to get user : {}", id);
+  public ResponseEntity<UserDTO> getUserById(@PathVariable("id") Long id) {
+    log.info("REST request to get user : {}", id);
     Optional<UserDTO> user = service.findOne(id);
     return ResponseUtil.wrapNotFound(user);
   }
