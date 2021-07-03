@@ -10,6 +10,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.ConcurrencyFailureException;
@@ -45,6 +46,7 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
 
   private final Environment env;
 
+  @Autowired
   public ExceptionTranslator(Environment env) {
     this.env = env;
   }
@@ -52,7 +54,7 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
   /** Post-process the Problem payload to add the message key for the front-end if needed. */
   @Override
   public ResponseEntity<Problem> process(
-      @Nullable ResponseEntity<Problem> entity, NativeWebRequest request) {
+      @Nullable ResponseEntity<Problem> entity, @NonNull NativeWebRequest request) {
     if (entity == null) {
       return null;
     }
@@ -140,7 +142,9 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
 
   @Override
   public ProblemBuilder prepare(
-      final Throwable throwable, final StatusType status, final URI type) {
+      @NonNull final Throwable throwable,
+      @NonNull final StatusType status,
+      @NonNull final URI type) {
     Collection<String> activeProfiles = Arrays.asList(env.getActiveProfiles());
 
     if (activeProfiles.contains(UserServiceConstants.SPRING_PROFILE_PRODUCTION)) {
