@@ -4,8 +4,10 @@ spring:
 
 ---
 spring:
-  profiles:
-    - dev
+  config:
+    activate:
+      on-profile:
+        - dev
   application:
     name: user-service
   autoconfigure:
@@ -24,8 +26,10 @@ spring:
 
 ---
 spring:
-  profiles:
-    - test
+  config:
+    activate:
+      on-profile:
+        - test
   application:
     name: user-service
   autoconfigure:
