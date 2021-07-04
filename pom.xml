@@ -24,6 +24,8 @@
         <zalando.version>0.26.2</zalando.version>
         <fmt.maven.version>2.11</fmt.maven.version>
         <lombok.mapstruct.version>0.2.0</lombok.mapstruct.version>
+        <dbunit.version>2.7.0</dbunit.version>
+        <spring.dbunit.version>1.3.0</spring.dbunit.version>
     </properties>
 
     <dependencies>
@@ -43,6 +45,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- ehcache 2nd level cache -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
         </dependency>
 
         <!-- mapstruct object mapper -->
@@ -92,6 +100,21 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- dbunit for repository testing -->
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>${dbunit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.springtestdbunit</groupId>
+            <artifactId>spring-test-dbunit</artifactId>
+            <version>${spring.dbunit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

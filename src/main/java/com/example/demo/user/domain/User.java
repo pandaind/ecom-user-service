@@ -13,6 +13,7 @@ import org.hibernate.Hibernate;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "users")
+@Cacheable
 public class User implements Serializable {
   private static final long serialVersionUID = 4061550443261513561L;
 

@@ -4,7 +4,9 @@ import com.example.demo.user.domain.User;
 import com.example.demo.user.service.dto.UserDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.test.context.ActiveProfiles;
 
+@ActiveProfiles("test")
 public interface TestHelperUtil {
   static <E> String toJsonString(E e) throws JsonProcessingException {
     ObjectMapper mapper = new ObjectMapper();
