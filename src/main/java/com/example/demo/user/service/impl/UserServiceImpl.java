@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
   @Override
   @Transactional(readOnly = true)
   public List<UserDTO> findAll() {
-    log.debug("Request to get all Products");
+    log.debug("Request to get all Users");
     return mapper.toDto(repository.findAll());
   }
 
