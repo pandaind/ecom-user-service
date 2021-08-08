@@ -1,6 +1,11 @@
 spring:
   profiles:
     active: dev
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090
+
 server:
   port: 8082
 
@@ -19,6 +24,7 @@ spring:
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration
   h2:
     console:
       enabled: true
@@ -41,6 +47,7 @@ spring:
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+      - org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration
   h2:
     console:
       enabled: true
