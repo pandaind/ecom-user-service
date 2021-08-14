@@ -7,13 +7,15 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
-/** Mapper for the entity {@link User} and its DTO {@link UserDTO}. */
+/**
+ * Mapper for the entity {@link User} and its DTO {@link UserDTO}.
+ */
 @Mapper(
-    componentModel = "spring",
-    uses = {})
+        componentModel = "spring",
+        uses = {})
 public interface UserMapper extends EntityMapper<UserDTO, User> {
-  @Named("id")
-  @BeanMapping(ignoreByDefault = true)
-  @Mapping(target = "id", source = "id")
-  UserDTO toDtoId(User user);
+    @Named("id")
+    @BeanMapping(ignoreByDefault = true)
+    @Mapping(target = "id", source = "id")
+    UserDTO toDtoId(User user);
 }

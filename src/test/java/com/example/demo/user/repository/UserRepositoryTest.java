@@ -1,11 +1,8 @@
 package com.example.demo.user.repository;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.example.demo.user.domain.User;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
-import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,24 +15,29 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @ActiveProfiles("test")
 @Slf4j
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestExecutionListeners({
-  DependencyInjectionTestExecutionListener.class,
-  DirtiesContextTestExecutionListener.class,
-  TransactionalTestExecutionListener.class,
-  DbUnitTestExecutionListener.class
+        DependencyInjectionTestExecutionListener.class,
+        DirtiesContextTestExecutionListener.class,
+        TransactionalTestExecutionListener.class,
+        DbUnitTestExecutionListener.class
 })
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @DatabaseSetup(value = "classpath:user-dataset.xml")
 class UserRepositoryTest {
-  @Autowired private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-  @Test
-  void testFindByUserName() {
-    Optional<User> user = userRepository.findByUserName("user 3");
-    assertEquals(3, user.orElseThrow().getId());
-  }
+    @Test
+    void testFindByUserName() {
+        Optional<User> user = userRepository.findByUserName("user 3");
+        assertEquals(3, user.orElseThrow().getId());
+    }
 }

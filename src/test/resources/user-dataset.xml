@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    <Users ID="1" USER_NAME="user 1" PASSWORD="password" ACTIVE="1" />
-    <Users ID="2" USER_NAME="user 2" PASSWORD="password" ACTIVE="1" />
-    <Users ID="3" USER_NAME="user 3" PASSWORD="password" ACTIVE="1" />
-    <Users ID="4" USER_NAME="user 4" PASSWORD="password" ACTIVE="1" />
+    <Users ID="1" USER_NAME="user 1" PASSWORD="password" ACTIVE="1"/>
+    <Users ID="2" USER_NAME="user 2" PASSWORD="password" ACTIVE="1"/>
+    <Users ID="3" USER_NAME="user 3" PASSWORD="password" ACTIVE="1"/>
+    <Users ID="4" USER_NAME="user 4" PASSWORD="password" ACTIVE="1"/>
 </dataset>

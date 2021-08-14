@@ -8,30 +8,30 @@ import org.springframework.test.context.ActiveProfiles;
 
 @ActiveProfiles("test")
 public interface TestHelperUtil {
-  static <E> String toJsonString(E e) throws JsonProcessingException {
-    ObjectMapper mapper = new ObjectMapper();
-    return mapper.writeValueAsString(e);
-  }
+    static <E> String toJsonString(E e) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(e);
+    }
 
-  static UserDTO userDTO(Long id) {
-    UserDTO userDTO = new UserDTO();
+    static UserDTO userDTO(Long id) {
+        UserDTO userDTO = new UserDTO();
 
-    if (id > 0) userDTO.setId(1L);
+        if (id > 0) userDTO.setId(1L);
 
-    userDTO.setUserName("test");
-    userDTO.setActive(1);
+        userDTO.setUserName("test");
+        userDTO.setActive(1);
 
-    return userDTO;
-  }
+        return userDTO;
+    }
 
-  static User user(Long id) {
-    User user = new User();
+    static User user(Long id) {
+        User user = new User();
 
-    if (id > 0) user.setId(1L);
+        if (id > 0) user.setId(1L);
 
-    user.setUserName("test");
-    user.setActive(1);
+        user.setUserName("test");
+        user.setActive(1);
 
-    return user;
-  }
+        return user;
+    }
 }
